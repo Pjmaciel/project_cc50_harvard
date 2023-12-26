@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Profile</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Student Profile</h1>
+        <p><h2>Cadastro de Disciplina</h2></p>
+      <!-- Formulário para adicionar disciplina -->
+      <form id="addDisciplineForm" enctype="multipart/form-data" method="post">
+        <p>
+          Nome da disciplina:
+          <input type="text" id="discipline_name" name="name" />
+        </p>
+        <p>
+          <button type="button" onclick="addDiscipline()">
+            Adicionar Disciplina
+          </button>
+        </p>
+      </form>
+
+      <!-- Botão para abrir o modal de Listar Disciplinas -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#disciplinesModal"
+        onclick="listDisciplines()"
+      >
+        Listar Disciplinas
+      </button>
+
+<!-- Modal de Disciplinas -->
+<div
+  class="modal fade"
+  id="disciplinesModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="disciplinesModalLabel"
+  aria-hidden="true"
+  data-backdrop="static"
+  data-keyboard="false"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="disciplinesModalLabel">
+          Lista de Disciplinas
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="disciplinesModalBody">
+        <!-- Tabela de Disciplinas -->
+        <table class="table" id="disciplinesModalTable">
+          <!-- O conteúdo da tabela será adicionado dinamicamente pelo JavaScript -->
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <p><h2>Cadastro de aluno</h2></p>
+      <!-- Formulário para adicionar aluno -->
+      <form id="addStudentForm" enctype="multipart/form-data" method="post">
+        <p>
+          Nome do aluno: <input type="text" id="name" name="name" /> Idade:
+          <input type="text" id="age" name="age" /> Disciplina:
+          <input type="text" id="discipline_id" name="discipline_id" />
+        </p>
+        <p>
+          <button type="button" onclick="addStudent()">Adicionar Aluno</button>
+        </p>
+      </form>
+    </div>
+
+    <!-- Tabela de alunos -->
+    <div id="studentsTableContainer">
+      <table class="table mt-4" id="studentsTable">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Disciplina</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in students %}
+          <tr>
+            <td>{{ student.name}}</td>
+            <td>{{ student.age}}</td>
+            <td>{{ student.discipline_id}}</td>
+            <td>
+              <button
+                class="btn btn-primary btn-sm"
+                onclick="editStudent({{student.id}})"
+              >
+                Editar
+              </button>
+              <button
+                class="btn btn-danger btn-sm"
+                onclick="deleteStudent({{student.id}})"
+              >
+                Excluir
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Scripts JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

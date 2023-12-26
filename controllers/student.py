@@ -20,9 +20,9 @@ def add():
 @student_bp.route('/editStudent/<int:id>', methods=['PUT', 'POST'])
 def edit(id):
     student = Student.query.get(id)
-    student.name = request.form('name')
-    student.age = request.form('age')
-    student.discipline_id = request.form('discipline_id')
+    student.name = request.form['name']
+    student.age = request.form['age']
+    student.discipline_id = request.form['discipline_id']
     db.session.commit()
     return Response(response=json.dumps(student.to_dict()), status=201, content_type="application/json")
 

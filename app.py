@@ -11,6 +11,12 @@ db.init_app(app)
 app.register_blueprint(student_controller, url_prefix="/student/", name="students")
 app.register_blueprint(discipline_controller, url_prefix="/discipline/", name="disciplines")
 
+@app.route('/')
+def show_homepage():
+    students =  Student.query.all()
+    disciplines = Discipline.query.all()
+    return render_template('index.html', students=students, disciplines=disciplines)
+
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
