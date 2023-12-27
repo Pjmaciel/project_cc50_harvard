@@ -46,7 +46,7 @@ This project is part of the cc50 certification by Harvard. It is a simple Flask 
 2. Click the "Add Discipline" button.
 3. The discipline will be listed in the table.
 
-![Screenshot Add Discipline](screenshots\disciplines\add_discipline_scshot.png)
+![Screenshot Add Discipline](screenshots/disciplines/add_discipline_scshot.png)
 
 ### List Disciplines
 
