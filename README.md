@@ -37,7 +37,8 @@ This project is part of the cc50 certification by Harvard. It is a simple Flask 
 
 2. Open your web browser and navigate to http://localhost:5000.
 
-![Screenshot homepage](screenshots\homepage_scshot.png)
+![Screenshot homepage](project_cc50_harvard
+\screenshots\homepage_scshot.png)
 ## Features
 
 ### Add Discipline
