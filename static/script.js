@@ -106,6 +106,7 @@ function addDiscipline() {
     .then((data) => {
       console.log("Disciplina adicionada com sucesso:", data);
       alert("Disciplina adicionada com sucesso:");
+      clearDisciplineForm();
     })
     .catch((error) => {
       console.error("Erro ao adicionar disciplina:", error);
@@ -113,6 +114,11 @@ function addDiscipline() {
         "Erro ao adicionar disciplina. Verifique o console para mais detalhes."
       );
     });
+}
+
+// Função para limpar os campos do formulário de disciplina
+function clearDisciplineForm() {
+  document.getElementById("discipline_name").value = "";
 }
 
 // Students
@@ -170,7 +176,8 @@ function addStudent() {
     .then((data) => {
       console.log("Estudante adicionado com sucesso:", data);
       alert("Estudante adicionado com sucesso.");
-      listStudents(); // Atualiza a tabela de estudantes após a adição bem-sucedida
+      listStudents();
+      clearStudentForm();
     })
     .catch((error) => {
       console.error("Erro ao adicionar estudante:", error);
@@ -279,6 +286,13 @@ function clearStudentsTable() {
       tbody.innerHTML = "";
     }
   }
+}
+
+// Função para limpar os campos do formulário de aluno
+function clearStudentForm() {
+  document.getElementById("name").value = "";
+  document.getElementById("age").value = "";
+  document.getElementById("discipline_id").value = "";
 }
 
 // Adicione esta linha ao final do seu arquivo script.js

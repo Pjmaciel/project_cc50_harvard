@@ -1,0 +1,44 @@
+/* style.css */
+
+/* Estilizando o corpo da página */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilizando o container principal */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Estilizando os cabeçalhos (h1, h2) */
+h1, h2 {
+  color: #333;
+}
+
+/* Estilizando os botões */
+button {
+  padding: 8px 12px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+/* Estilizando as tabelas */
+.table {
+  margin-top: 20px;
+}
+
+/* Estilizando os formulários */
+form {
+  margin-top: 20px;
+}
+
+/* Estilizando os modais */
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Adicione mais estilos conforme necessário */
