@@ -10,12 +10,22 @@ def list():
     result = [d.to_dict() for d in rows]
     return Response(response=json.dumps(result), status=200, content_type="application/json")
 
+
+
+@discipline_bp.route("/findById/<int:id>")
+def find_by_id(id):
+    discipline = Discipline.query.get(id)
+    result = {"name": discipline.name}
+    return Response(response=json.dumps(result), status=200, content_type="application/json")
+
+
 @discipline_bp.route("/addDiscipline", methods=['POST'])
 def add():
     discipline = Discipline(request.form['name'])
     db.session.add(discipline)
     db.session.commit()
     return Response(response=json.dumps(discipline.to_dict()), status=200, content_type="application/json")
+
 
 @discipline_bp.route("/editDiscipline/<int:id>", methods=['PUT', 'POST'])
 def edit(id):

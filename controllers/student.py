@@ -4,7 +4,7 @@ import json
 
 student_bp =  Blueprint("students", __name__)
 
-@student_bp.route("/")
+@student_bp.route("/listStudents")
 def list():
     rows = Student.query.all()
     result = [s.to_dict() for s in rows]
@@ -31,4 +31,4 @@ def delete(id):
     student = Student.query.get(id)
     db.session.delete(student)
     db.session.commit()
-    return Response(request=json.dumps(student.to_dict()), status=200, content_type="application/json")
+    return Response(response=json.dumps(student.to_dict()), status=200, content_type="application/json")

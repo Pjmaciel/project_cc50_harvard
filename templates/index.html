@@ -93,7 +93,8 @@
         <p>
           Nome do aluno: <input type="text" id="name" name="name" /> Idade:
           <input type="text" id="age" name="age" /> Disciplina:
-          <input type="text" id="discipline_id" name="discipline_id" />
+          <select type="text" id="discipline_id" name="discipline_id" onclick="populateDisciplinesDropdown()" >
+          </select>
         </p>
         <p>
           <button type="button" onclick="addStudent()">Adicionar Aluno</button>
@@ -101,41 +102,23 @@
       </form>
     </div>
 
-    <!-- Tabela de alunos -->
-    <div id="studentsTableContainer">
-      <table class="table mt-4" id="studentsTable">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Nome</th>
-            <th scope="col">Idade</th>
-            <th scope="col">Disciplina</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for student in students %}
-          <tr>
-            <td>{{ student.name}}</td>
-            <td>{{ student.age}}</td>
-            <td>{{ student.discipline_id}}</td>
-            <td>
-              <button
-                class="btn btn-primary btn-sm"
-                onclick="editStudent({{student.id}})"
-              >
-                Editar
-              </button>
-              <button
-                class="btn btn-danger btn-sm"
-                onclick="deleteStudent({{student.id}})"
-              >
-                Excluir
-              </button>
-            </td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
+<!-- Tabela de alunos -->
+<div id="studentsTableContainer">
+  <table class="table mt-4" id="studentsTable">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Idade</th>
+        <th scope="col">Disciplina</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody id="studentsTableBody">
+      <!-- O conteúdo da tabela será adicionado dinamicamente pelo JavaScript -->
+    </tbody>
+  </table>
+</div>
 
     <!-- Scripts JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

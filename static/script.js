@@ -114,3 +114,172 @@ function addDiscipline() {
       );
     });
 }
+
+// Students
+
+// Adicione esta função ao seu arquivo script.js
+function populateDisciplinesDropdown() {
+  // Faz o fetch para obter a lista de disciplinas
+  fetch("/discipline/listDisciplines")
+    .then((response) => response.json())
+    .then((data) => {
+      const dropdown = document.getElementById("discipline_id");
+
+      // Salva o valor atual selecionado (se houver)
+      const selectedValue = dropdown.value;
+
+      // Limpa as opções existentes
+      dropdown.innerHTML = "";
+
+      // Adiciona as opções da lista suspensa
+      data.forEach((discipline) => {
+        const option = document.createElement("option");
+        option.value = discipline.id;
+        option.textContent = discipline.name;
+        dropdown.appendChild(option);
+      });
+
+      // Tenta redefinir o valor selecionado (se existir)
+      if (selectedValue) {
+        dropdown.value = selectedValue;
+      }
+    })
+    .catch((error) => console.error("Erro ao obter disciplinas:", error));
+}
+
+function addStudent() {
+  let studentName = document.getElementById("name").value;
+  let studentAge = document.getElementById("age").value;
+  let studentDisciplineId = document.getElementById("discipline_id").value;
+
+  if (!studentName || !studentAge || !studentDisciplineId) {
+    alert("Por favor, preencha todos os campos do aluno.");
+    return;
+  }
+
+  fetch("/student/addStudent", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `name=${encodeURIComponent(
+      studentName
+    )}&age=${studentAge}&discipline_id=${studentDisciplineId}`,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Estudante adicionado com sucesso:", data);
+      alert("Estudante adicionado com sucesso.");
+      listStudents(); // Atualiza a tabela de estudantes após a adição bem-sucedida
+    })
+    .catch((error) => {
+      console.error("Erro ao adicionar estudante:", error);
+      alert(
+        "Erro ao adicionar estudante. Verifique o console para mais detalhes."
+      );
+    });
+}
+
+function listStudents() {
+  fetch("/student/listStudents")
+    .then((response) => response.json())
+    .then((data) => {
+      clearTable("studentsTableBody");
+
+      const table = document.getElementById("studentsTableBody");
+
+      data.forEach((student) => {
+        const row = document.createElement("tr");
+
+        ["id", "name", "age"].forEach((key) => {
+          const cell = document.createElement("td");
+          cell.textContent = student[key];
+          row.appendChild(cell);
+        });
+
+        // Aqui, em vez de exibir o discipline_id, vamos buscar o nome da disciplina
+        const disciplineCell = document.createElement("td");
+        fetch(`/discipline/findById/${student.discipline_id}`)
+          .then((response) => response.json())
+          .then((discipline) => {
+            disciplineCell.textContent = discipline.name;
+          })
+          .catch((error) => console.error("Erro ao obter disciplina:", error));
+
+        row.appendChild(disciplineCell);
+
+        // Coluna de ações (botões Editar e Excluir)
+        const actionsCell = document.createElement("td");
+        const editButton = createButton("Editar", () =>
+          editStudent(student.id)
+        );
+        const deleteButton = createButton("Excluir", () =>
+          deleteStudent(student.id)
+        );
+        actionsCell.appendChild(editButton);
+        actionsCell.appendChild(deleteButton);
+        row.appendChild(actionsCell);
+
+        table.appendChild(row);
+      });
+    })
+    .catch((error) => console.error("Erro ao obter estudantes:", error));
+}
+
+function deleteStudent(studentId) {
+  if (confirm("Tem certeza de que deseja excluir este estudante?")) {
+    fetch(`/student/deleteStudent/${studentId}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        // Adicione esta linha para ver a resposta completa no console
+        console.log(response);
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        listStudents();
+      })
+      .catch((error) => console.error("Erro ao excluir estudante:", error));
+  }
+  console.log("Excluir estudante com ID:", studentId);
+}
+
+function editStudent(studentId) {
+  const studentName = prompt("Digite o novo nome do estudante");
+  const studentAge = prompt("Digite a nova idade do estudante");
+  const studentDisciplineId = prompt(
+    "Digite o novo ID da disciplina do estudante"
+  );
+
+  fetch(`/student/editStudent/${studentId}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `name=${studentName}&age=${studentAge}&discipline_id=${studentDisciplineId}`,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      listStudents();
+    })
+    .catch((error) => console.error("Erro ao editar estudante:", error));
+
+  console.log("Editar estudante com ID:", studentId);
+}
+
+// Função para limpar a tabela de estudantes
+function clearStudentsTable() {
+  const table = document.getElementById("studentsTable");
+  if (table) {
+    // Mantenha os cabeçalhos da tabela e remova apenas as linhas de dados
+    const tbody = table.querySelector("tbody");
+    if (tbody) {
+      tbody.innerHTML = "";
+    }
+  }
+}
+
+// Adicione esta linha ao final do seu arquivo script.js
+document.addEventListener("DOMContentLoaded", listStudents);
