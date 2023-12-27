@@ -53,7 +53,7 @@ This project is part of the cc50 certification by Harvard. It is a simple Flask 
 1. Click the "List Disciplines" button.
 2. A modal table will be displayed with the registered disciplines.
 
-![Screenshot List Disciplines](screenshots\disciplines\list_discipline_scshot.png)
+![Screenshot List Disciplines](screenshots/disciplines/list_discipline_scshot.png)
 
 ### Edit Disciplines
 
@@ -62,7 +62,7 @@ This project is part of the cc50 certification by Harvard. It is a simple Flask 
 3. Click the "Save Changes" button.
 4. The discipline will be updated in the table.
 
-![Screenshot Edit Discipline](screenshots\disciplines\edit_discipline_scshot.png)
+![Screenshot Edit Discipline](screenshots/disciplines/edit_discipline_scshot.png)
 
 ### Delete Disciplines
 
@@ -70,7 +70,7 @@ This project is part of the cc50 certification by Harvard. It is a simple Flask 
 2. Confirm the deletion in the modal.
 3. The discipline will be removed from the table.
 
-![Screenshot Delete Discipline](screenshots\disciplines\del_discipline_scshot.png)
+![Screenshot Delete Discipline](screenshots/disciplines/del_discipline_scshot.png)
 
 
 ### Add Student
@@ -79,7 +79,7 @@ This project is part of the cc50 certification by Harvard. It is a simple Flask 
 2. Click the "Add Student" button.
 3. The student will be listed in the student table.
 
-![Screenshot Add Student](screenshots\students\add_student_scshot.png)
+![Screenshot Add Student](screenshots/students/add_student_scshot.png)
 
 
 
@@ -87,7 +87,7 @@ This project is part of the cc50 certification by Harvard. It is a simple Flask 
 
 1. Students are automatically displayed in the main table.
 2. Each student has buttons to edit or delete.
-![Screenshot List Students](screenshots\students\list_students_scshot.png)
+![Screenshot List Students](screenshots/students/list_students_scshot.png)
 
 
 ### Edit Students
@@ -97,8 +97,8 @@ This project is part of the cc50 certification by Harvard. It is a simple Flask 
 3. Click the "Save Changes" button.
 4. The student's information will be updated in the table.
 
-![Screenshot Edit Student](screenshots\students\edit_student_cschot.png)
-![Screenshot List after edit](screenshots\students\edited_student_cschot.png)
+![Screenshot Edit Student](screenshots/students*edit_student_cschot.png)
+![Screenshot List after edit](screenshots/students/edited_student_cschot.png)
 
 ### Delete Students
 
@@ -106,8 +106,8 @@ This project is part of the cc50 certification by Harvard. It is a simple Flask 
 2. Confirm the deletion in the modal.
 3. The student will be removed from the table.
 
-![Screenshot Delete Student](screenshots\students\del_student_cschot.png)
-![Screenshot List after delete](screenshots\students\deleted_student_cschot.png)
+![Screenshot Delete Student](screenshots/students/del_student_cschot.png)
+![Screenshot List after delete](screenshots/students/deleted_student_cschot.png)
 
 
 # Student Profiler
@@ -142,7 +142,7 @@ Este projeto faz parte da certificação cc50 da Harvard. É uma aplicação sim
 
 2. Abra seu navegador da web e acesse http://localhost:5000.
 
-![Captura de tela da página inicial](screenshots\homepage_scshot.png)
+![Captura de tela da página inicial](screenshots/homepage_scshot.png)
 
 ## Recursos
 
@@ -152,14 +152,14 @@ Este projeto faz parte da certificação cc50 da Harvard. É uma aplicação sim
 2. Clique no botão "Adicionar Disciplina".
 3. A disciplina será listada na tabela.
 
-![Captura de tela Adicionar Disciplina](screenshots\disciplines\add_discipline_scshot.png)
+![Captura de tela Adicionar Disciplina](screenshots/disciplines/add_discipline_scshot.png)
 
 ### Listar Disciplinas
 
 1. Clique no botão "Listar Disciplinas".
 2. Uma tabela modal será exibida com as disciplinas registradas.
 
-![Captura de tela Listar Disciplinas](screenshots\disciplines\list_discipline_scshot.png)
+![Captura de tela Listar Disciplinas](screenshots/disciplines/list_discipline_scshot.png)
 
 ### Editar Disciplinas
 
@@ -168,7 +168,7 @@ Este projeto faz parte da certificação cc50 da Harvard. É uma aplicação sim
 3. Clique no botão "Salvar Alterações".
 4. A disciplina será atualizada na tabela.
 
-![Captura de tela Editar Disciplina](screenshots\disciplines\edit_discipline_scshot.png)
+![Captura de tela Editar Disciplina](screenshots/disciplines/edit_discipline_scshot.png)
 
 ### Excluir Disciplinas
 
@@ -176,7 +176,7 @@ Este projeto faz parte da certificação cc50 da Harvard. É uma aplicação sim
 2. Confirme a exclusão no modal.
 3. A disciplina será removida da tabela.
 
-![Captura de tela Excluir Disciplina](screenshots\disciplines\del_discipline_scshot.png)
+![Captura de tela Excluir Disciplina](screenshots/disciplines/del_discipline_scshot.png)
 
 
 ### Adicionar Aluno
@@ -185,7 +185,7 @@ Este projeto faz parte da certificação cc50 da Harvard. É uma aplicação sim
 2. Clique no botão "Adicionar Aluno".
 3. O aluno será listado na tabela de alunos.
 
-![Captura de tela Adicionar Aluno](screenshots\students\add_student_scshot.png)
+![Captura de tela Adicionar Aluno](screenshots/students/add_student_scshot.png)
 
 
 
@@ -193,7 +193,7 @@ Este projeto faz parte da certificação cc50 da Harvard. É uma aplicação sim
 
 1. Os alunos são exibidos automaticamente na tabela principal.
 2. Cada aluno tem botões para editar ou excluir.
-![Captura de tela Listar Alunos](screenshots\students\list_students_scshot.png)
+![Captura de tela Listar Alunos](screenshots/students/list_students_scshot.png)
 
 
 ### Editar Alunos
@@ -203,8 +203,8 @@ Este projeto faz parte da certificação cc50 da Harvard. É uma aplicação sim
 3. Clique no botão "Salvar Alterações".
 4. As informações do aluno serão atualizadas na tabela.
 
-![Captura de tela Editar Aluno](screenshots\students\edit_student_cschot.png)
-![Captura de tela Lista após editar](screenshots\students\edited_student_cschot.png)
+![Captura de tela Editar Aluno](screenshots/students/edit_student_cschot.png)
+![Captura de tela Lista após editar](screenshots/students/edited_student_cschot.png)
 
 ### Excluir Alunos
 
@@ -212,8 +212,8 @@ Este projeto faz parte da certificação cc50 da Harvard. É uma aplicação sim
 2. Confirme a exclusão no modal.
 3. O aluno será removido da tabela.
 
-![Captura de tela Excluir Aluno](screenshots\students\del_student_cschot.png)
-![Captura de tela Lista após excluir](screenshots\students\deleted_student_cschot.png)
+![Captura de tela Excluir Aluno](screenshots/students/del_student_cschot.png)
+![Captura de tela Lista após excluir](screenshots/students/deleted_student_cschot.png)
 
 
 ## Contribuição
@@ -222,5 +222,5 @@ Sinta-se à vontade para contribuir. Siga as etapas de instalação e faça um f
 
 ## Licença
 
-Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](\project_cc50_harvard\LICENSE) para obter detalhes.
+Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](/project_cc50_harvard/LICENSE) para obter detalhes.
 
